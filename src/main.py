@@ -2,6 +2,10 @@
 # Developers: 1. Aram Aprahamian, 2. [name], 3. [name]
 import pygame
 import pygame_gui
+import math
+import scipy
+
+from src.Player import Player
 
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
@@ -12,6 +16,9 @@ PLAYER_1_RIGHT = pygame.K_d
 
 PLAYER_2_LEFT = pygame.K_LEFT
 PLAYER_2_RIGHT = pygame.K_RIGHT
+
+player1 = Player(1, PLAYER_1_LEFT, PLAYER_1_RIGHT)
+player2 = Player(2, PLAYER_2_LEFT, PLAYER_2_RIGHT)
 
 def main():
     print("Initializing Space Tanks...")
@@ -48,20 +55,18 @@ def main():
                     else:
                         pygame.time.set_timer(pygame.USEREVENT, 1000 // FRAME_RATE_CAP)
                         print("Game is unpaused")
-                if event.key == PLAYER_1_RIGHT:
-                    print("Player 1 right")
-                if event.key == PLAYER_1_LEFT:
-                    print("Player 1 left")
-                if event.key == PLAYER_2_RIGHT:
-                    print("Player 2 right")
-                if event.key == PLAYER_2_LEFT:
-                    print("Player 2 left")
+
+                player1.handle_event(event)
+                player2.handle_event(event)
 
         # Update the window
         pygame.display.update()
         pygame.display.flip()
     # Quit Pygame
     pygame.quit()
+
+def init_round():
+    pass
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 # Creation by T.E.C.H. Club Games Division, College of the Canyons 2025
-# Developers: 1. Aram Aprahamian, 2. [name], 3. Katie Kameya
+# Developers: 1. Aram Aprahamian, 2. Zach Waschak, 3. Katie Kameya
 import pygame
 import pygame_gui
 import math

@@ -5,8 +5,8 @@ import pygame_gui
 import math
 import scipy
 
-from src.Player import Player
-
+from Player import Player
+from Pause import Pause
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 FRAME_RATE_CAP = 60
@@ -19,6 +19,8 @@ PLAYER_2_RIGHT = pygame.K_RIGHT
 
 player1 = Player(1, PLAYER_1_LEFT, PLAYER_1_RIGHT)
 player2 = Player(2, PLAYER_2_LEFT, PLAYER_2_RIGHT)
+
+pause = Pause()
 
 def main():
     print("Initializing Space Tanks...")
@@ -52,6 +54,7 @@ def main():
                     if is_paused:
                         pygame.time.set_timer(pygame.USEREVENT, 0)
                         print("Game is paused")
+                        pause.start()
                     else:
                         pygame.time.set_timer(pygame.USEREVENT, 1000 // FRAME_RATE_CAP)
                         print("Game is unpaused")
